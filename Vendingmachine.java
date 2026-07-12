@@ -7,7 +7,7 @@ enum Coin {
     TEN
 }
 
-public class VendingMachine {
+public class Vendingmachine {
 
     public static void main(String[] args) {
 
