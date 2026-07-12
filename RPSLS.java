@@ -4,6 +4,14 @@ import java.util.Scanner;
 
 public class RPSLS {
 
+    enum Move {
+        ROCK,
+        PAPER,
+        SCISSORS,
+        LIZARD,
+        SPOCK
+    }
+
     public static int winner(Move player, Move computer) {
 
         if (player == computer) {
