@@ -64,7 +64,7 @@ public class TollBooth
         {
             mostFrequent = "truck";
         }
-
+        
         System.out.println("\nTotal Toll = " + totalToll);
         System.out.println("Most Frequent Vehicle = " + mostFrequent);
 
