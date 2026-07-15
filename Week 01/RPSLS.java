@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class RPSLS {
 
-    enum Move {
+    public enum Move {
         ROCK,
         PAPER,
         SCISSORS,
