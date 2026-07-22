@@ -27,6 +27,10 @@ class Driver {
                 distinct++;
             }
         }
+        System.out.println("Points:");
+        for (Point p : points) {
+            System.out.println(p);
+        }
 
         System.out.println("Distinct: " + distinct);
     }

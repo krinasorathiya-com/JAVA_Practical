@@ -11,8 +11,6 @@ class Point {
         this.x = x;
         this.y = y;
     }
-
-
     @Override
     public String toString() {
         return "(" + x + ", " + y + ")";
