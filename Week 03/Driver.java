@@ -1,5 +1,3 @@
-import java.awt.Point;
-
 class Driver {
     public static void main(String[] args) {
 
@@ -11,7 +9,13 @@ class Driver {
             new Point(3, 4)
         };
 
+        System.out.println("Points:");
+        for (Point p : points) {
+            System.out.println(p);
+        }
+
         int distinct = 0;
+        int repeats = 0;
 
         for (int i = 0; i < points.length; i++) {
             boolean found = false;
@@ -19,6 +23,7 @@ class Driver {
             for (int j = 0; j < i; j++) {
                 if (points[i].equals(points[j])) {
                     found = true;
+                    repeats++;
                     break;
                 }
             }
@@ -27,11 +32,8 @@ class Driver {
                 distinct++;
             }
         }
-        System.out.println("Points:");
-        for (Point p : points) {
-            System.out.println(p);
-        }
 
+        System.out.println("Repeated points: " + repeats);
         System.out.println("Distinct: " + distinct);
     }
 }
