@@ -1,17 +1,31 @@
-class Point {
-    int x, y;
+import java.util.Objects;
 
+class Point {
+    private int x, y;
+
+    // Constructor
     Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
+
     public String toString() {
         return "(" + x + ", " + y + ")";
     }
 
-    public static void main(String[] args) {
-        Point p = new Point(5, 10);
-        System.out.println(p);
+    
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!(obj instanceof Point))
+            return false;
+
+        Point p = (Point) obj;
+        return x == p.x && y == p.y;
+    }
+
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 }
