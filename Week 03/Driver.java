@@ -1,3 +1,25 @@
+class Point {
+    int x, y;
+    
+    Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Point p = (Point) obj;
+        return x == p.x && y == p.y;
+    }
+    
+    @Override
+    public String toString() {
+        return "(" + x + ", " + y + ")";
+    }
+}
+
 class Driver {
     public static void main(String[] args) {
 
