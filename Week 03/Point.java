@@ -1,23 +1,24 @@
 import java.util.Objects;
 
 class Point {
-    private int x, y;
+    private final int x, y;
     public static void main(String[] args) {
         
     }
 
     // Constructor
-    Point(int x, int y) {
+    public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
 
+    @Override
     public String toString() {
         return "(" + x + ", " + y + ")";
     }
 
-    
+    @Override
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
@@ -29,6 +30,7 @@ class Point {
     }
 
     
+    @Override
     public int hashCode() {
         return Objects.hash(x, y);
     }

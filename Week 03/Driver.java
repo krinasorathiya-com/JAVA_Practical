@@ -1,3 +1,5 @@
+import java.awt.Point;
+
 class Driver {
     public static void main(String[] args) {
 
