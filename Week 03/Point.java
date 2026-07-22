@@ -2,6 +2,9 @@ import java.util.Objects;
 
 class Point {
     private int x, y;
+    public static void main(String[] args) {
+        
+    }
 
     // Constructor
     Point(int x, int y) {
