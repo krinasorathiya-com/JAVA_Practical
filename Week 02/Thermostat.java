@@ -5,7 +5,8 @@ private int temperature;
 
 
 // Static Constants
-private static final int MIN = 16; private static final int MAX = 30;
+private static final int MIN = 16;
+private static final int MAX = 30;
 
 // Static Variable
 private static int activeCount = 0;
