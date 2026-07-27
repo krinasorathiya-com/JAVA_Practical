@@ -1,16 +1,17 @@
-import java.util.Objects;
+package Distinct_points;
+public class Point {
+    private int x;
+    private int y;
 
-class Point {
-    private final int x, y;
-    public static void main(String[] args) {
-        
-    }
-
-    // Constructor
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
+
+    public Point(int x) {
+        this(x, 0);
+    }
+
     @Override
     public String toString() {
         return "(" + x + ", " + y + ")";
@@ -20,16 +21,25 @@ class Point {
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
-        if (!(obj instanceof Point))
+
+        if (obj == null || getClass() != obj.getClass())
             return false;
 
         Point p = (Point) obj;
+
         return x == p.x && y == p.y;
     }
 
-    
     @Override
     public int hashCode() {
-        return Objects.hash(x, y);
+        return java.util.Objects.hash(x, y);
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
     }
 }
