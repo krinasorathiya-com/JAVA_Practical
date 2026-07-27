@@ -1,5 +1,3 @@
-package week03.fraction;
-
 import java.util.Objects;
 
 public class Fraction {
