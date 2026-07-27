@@ -1,6 +1,6 @@
-package Week 03.Fraction;
+package week03.fraction;
 
-public import java.util.Objects;
+import java.util.Objects;
 
 public class Fraction {
 
