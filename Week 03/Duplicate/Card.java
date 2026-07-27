@@ -1,4 +1,3 @@
-package Week03.Duplicate;
 import java.util.Objects;
 
 public class Card {
