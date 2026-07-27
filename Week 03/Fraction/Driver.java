@@ -40,4 +40,4 @@ public class Driver {
             return numerator + "/" + denominator;
         }
     }
-} 
+}
