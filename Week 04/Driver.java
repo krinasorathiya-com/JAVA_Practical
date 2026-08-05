@@ -3,11 +3,11 @@ public class Driver {
         PasswordChecker pc = new PasswordChecker();
 
         String[] password = {
-                "abc",
-                "Password",
-                "Pass123",
-                "Abcd1234!",
-                "HELLO@12"
+                "ute12354%",
+                "Krina",
+                "kty&&",
+                "Krina11!",
+                "HEL12"
         };
 
         for (String pw : password) {
