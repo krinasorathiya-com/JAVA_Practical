@@ -1,13 +1,39 @@
 public class PasswordChecker {
 
-    public String strength(String password) {
+    public boolean hasLength(String pw) {
+        return pw.matches(".{8,}");
+    }
 
-        String regex = "^(?=.*[A-Z])(?=.*\\d)(?=.*[^a-zA-Z0-9]).{8,}$";
+    public boolean hasUppercase(String pw) {
+        return pw.matches(".*[A-Z].*");
+    }
 
-        if (password.matches(regex)) {
+    public boolean hasDigit(String pw) {
+        return pw.matches(".*\\d.*");
+    }
+
+    public boolean hasSpecial(String pw) {
+        return pw.matches(".*[^a-zA-Z0-9].*");
+    }
+
+    
+    public String strength(String pw) {
+        int count = 0;
+
+        if (hasLength(pw))
+            count++;
+        if (hasUppercase(pw))
+            count++;
+        if (hasDigit(pw))
+            count++;
+        if (hasSpecial(pw))
+            count++;
+
+        if (count <= 1)
+            return "Weak";
+        else if (count <= 3)
+            return "Medium";
+        else
             return "Strong";
-        } else {
-            return "Weak/Medium";
-        }
     }
 }
