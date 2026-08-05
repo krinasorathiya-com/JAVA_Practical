@@ -36,6 +36,30 @@ public class Driver {
         }
 
         @Override
+        public int hashCode() {
+            int normalizedNumerator = numerator;
+            int normalizedDenominator = denominator;
+            int divisor = gcd(Math.abs(normalizedNumerator), Math.abs(normalizedDenominator));
+
+            normalizedNumerator /= divisor;
+            normalizedDenominator /= divisor;
+
+            if (normalizedDenominator < 0) {
+                normalizedNumerator = -normalizedNumerator;
+                normalizedDenominator = -normalizedDenominator;
+            }
+
+            return 31 * normalizedNumerator + normalizedDenominator;
+        }
+
+        private int gcd(int a, int b) {
+            if (b == 0) {
+                return a;
+            }
+            return gcd(b, a % b);
+        }
+
+        @Override
         public String toString() {
             return numerator + "/" + denominator;
         }
