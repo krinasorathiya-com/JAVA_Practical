@@ -1,3 +1,4 @@
+import your.package.PasswordChecker;
 public static void main(String[] args) {
 
         PasswordChecker pc = new PasswordChecker();
