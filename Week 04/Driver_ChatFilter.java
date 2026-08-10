@@ -8,13 +8,10 @@ public class Driver_ChatFilter {
             "10:15 charlie"
         };
 
-        Scanner sc = new Scanner(System.in);
-
         System.out.print("Enter keyword: ");
-        String keyword = sc.nextLine();
-
-        ChatFilter.filterLogs(logs, keyword);
-
-        sc.close();
+        try (Scanner sc = new Scanner(System.in)) {
+            String keyword = sc.nextLine();
+            ChatFilter.filterLogs(logs, keyword);
+        }
     }
 }
