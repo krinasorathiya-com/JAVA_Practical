@@ -16,8 +16,7 @@ public class ChatFilter {
 
             if (message.toLowerCase().contains(keyword.toLowerCase())) {
                 count++;
-                report.append(time)
-                      .append(" ")
+                report.append(time) .append(" ")
                       .append(user)
                       .append(": ")
                       .append(message)
