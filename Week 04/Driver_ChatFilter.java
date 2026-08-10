@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Driver {
+public class Driver_ChatFilter {
     public static void main(String[] args) {
         String[] logs = {
             "10:05 alice Hello there",
