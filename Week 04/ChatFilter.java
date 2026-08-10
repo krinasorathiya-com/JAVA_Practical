@@ -16,11 +16,12 @@ public class ChatFilter {
 
             if (message.toLowerCase().contains(keyword.toLowerCase())) {
                 count++;
-                report.append(time) .append(" ")
-                      .append(user)
-                      .append(": ")
-                      .append(message)
-                      .append("\n");
+                report.append(time)
+                .append(" ")
+                .append(user)
+                .append(": ")
+                .append(message)
+                .append("\n");
             }
         }
 
