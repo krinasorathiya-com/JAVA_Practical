@@ -47,19 +47,14 @@ public class ShapeAreaCalculator {
     public static void main(String[] args) {
 
         
-        Shape[] shapes = {
-            new Circle(5),
-            new Rectangle(10, 4),
-            new Triangle(6, 8),
-            new Circle(3)
-        };
+       Scanner 
 
         double total = 0;
         double largest = 0;
 
         for (Shape s : shapes) {
             double currentArea = s.area();
-
+            System.out.println("Area Calculator :");
             System.out.println("Area = " + currentArea);
 
             total += currentArea;
