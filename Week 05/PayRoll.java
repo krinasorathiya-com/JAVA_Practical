@@ -52,7 +52,7 @@ class Intern extends Employee {
     }
 }
 
-public class Main {
+public class PayRoll {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
