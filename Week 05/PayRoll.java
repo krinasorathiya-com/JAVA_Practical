@@ -55,7 +55,7 @@ class Intern extends Employee {
     }
 }
 
-public class Main {
+public class PayRoll {
     public static void main(String[] args) {
 
         try (Scanner sc = new Scanner(System.in)) {
@@ -101,22 +101,17 @@ public class Main {
             double largest = 0;
             String largestEmployee = "";
             
-            for (int i = 0; i < employees.length; i++) {
-                
-                double sal = employees[i].monthlySalary();
-                
-                System.out.println("\nName = " + employees[i].name);
-                System.out.println("ID = " + employees[i].id);
+            for (Employee employee : employees) {
+                double sal = employee.monthlySalary();
+                System.out.println("\nName = " + employee.name);
+                System.out.println("ID = " + employee.id);
                 System.out.println("Salary = " + sal);
-                
                 total = total + sal;
-                
                 if (sal > largest) {
                     largest = sal;
-                    largestEmployee = employees[i].name;
+                    largestEmployee = employee.name;
                 }
-                
-                if (employees[i] instanceof Intern) {
+                if (employee instanceof Intern) {
                     System.out.println("Note: This employee is an Intern.");
                 }
             }
