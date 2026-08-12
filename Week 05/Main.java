@@ -20,6 +20,7 @@ class FullTime extends Employee {
         this.salary = salary;
     }
 
+    @Override
     double monthlySalary() {
         return salary;
     }
@@ -34,6 +35,7 @@ class PartTime extends Employee {
         this.rate = rate;
     }
 
+    @Override
     double monthlySalary() {
         return hours * rate;
     }
@@ -47,12 +49,13 @@ class Intern extends Employee {
         this.stipend = stipend;
     }
 
+    @Override
     double monthlySalary() {
         return stipend;
     }
 }
 
-public class PayRoll {
+public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
