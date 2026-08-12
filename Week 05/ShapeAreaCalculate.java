@@ -24,7 +24,8 @@ class Rectangle extends Shape {
         this.l = l;
         this.w = w;
     }
-
+    
+    @Override
     double area() {
         return l * w;
     }
@@ -38,6 +39,7 @@ class Triangle extends Shape {
         this.h = h;
     }
 
+    @Override
     double area() {
         return 0.5 * b * h;
     }
