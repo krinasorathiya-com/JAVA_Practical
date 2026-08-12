@@ -42,7 +42,7 @@ class Triangle extends Shape {
     }
 }
 
-public class ShapeAreaCalculate {
+public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -68,23 +68,34 @@ public class ShapeAreaCalculate {
             new Triangle(b, h)
         };
 
+        String[] names = {
+            "Circle",
+            "Rectangle",
+            "Triangle"
+        };
+
         double total = 0;
         double largest = 0;
+        String largestShape = "";
 
-        for (Shape s : shapes) {
-            double a = s.area();
+        for (int i = 0; i < shapes.length; i++) {
 
-            System.out.println("Area = " + a);
+            double a = shapes[i].area();
 
-            total += a;
+            System.out.println(names[i] + " Area = " + a);
+
+            total = total + a;
 
             if (a > largest) {
                 largest = a;
+                largestShape = names[i];
             }
         }
 
+        System.out.println("----------------------");
         System.out.println("Total Area = " + total);
         System.out.println("Largest Area = " + largest);
+        System.out.println("Largest Shape = " + largestShape);
 
         sc.close();
     }
