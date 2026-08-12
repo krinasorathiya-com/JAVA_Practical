@@ -42,7 +42,7 @@ class Triangle extends Shape {
     }
 }
 
-public class Main {
+public class ShapeAreaCalculate {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
