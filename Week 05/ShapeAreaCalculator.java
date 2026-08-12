@@ -43,7 +43,7 @@ class Triangle extends Shape {
     }
 }
 
-public class Main {
+public class ShapeAreaCalculator {
     public static void main(String[] args) {
 
         
