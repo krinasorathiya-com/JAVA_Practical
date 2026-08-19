@@ -20,7 +20,7 @@ public class Calculator {
 
         while (!done) {
             try {
-                System.out.print("Enter: ");
+                System.out.print("Enter Operand and Operator: ");
 
                 int a = sc.nextInt();
                 char op = sc.next().charAt(0);
