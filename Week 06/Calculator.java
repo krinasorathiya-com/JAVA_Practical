@@ -1,49 +1,67 @@
-import java.util.Scanner;public class Calculator {
+import java.util.Scanner;
+
+class DivideByZeroException extends Exception {
+    DivideByZeroException(String msg) {
+        super(msg);
+    }
+}
+
+class InvalidNumberException extends Exception {
+    InvalidNumberException(String msg) {
+        super(msg);
+    }
+}
+
+class Calculator{
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+        boolean success = false;
 
-        System.out.print("Enter first number: ");
-        double num1 = sc.nextDouble();
+        while (!success) {
+            try {
+                System.out.print("Enter expression (a operator b): ");
 
-        System.out.print("Enter operator (+, -, *, /): ");
-        char operator = sc.next().charAt(0);
+                String a = sc.next();
+                char op = sc.next().charAt(0);
+                String b = sc.next();
 
-        System.out.print("Enter second number: ");
-        double num2 = sc.nextDouble();
+                if (!a.matches("\\d+") || !b.matches("\\d+"))
+                    throw new InvalidNumberException("Invalid number!");
 
-        double result;
+                int x = Integer.parseInt(a);
+                int y = Integer.parseInt(b);
 
-        switch (operator) {
-            case '+':
-                result = num1 + num2;
-                System.out.println("Result = " + result);
-                break;
+                if (op == '/' && y == 0)
+                    throw new DivideByZeroException("Cannot divide by zero!");
 
-            case '-':
-                result = num1 - num2;
-                System.out.println("Result = " + result);
-                break;
+                if (op == '+')
+                    System.out.println("Result = " + (x + y));
+                else if (op == '-')
+                    System.out.println("Result = " + (x - y));
+                else if (op == '*')
+                    System.out.println("Result = " + (x * y));
+                else if (op == '/')
+                    System.out.println("Result = " + (x / y));
+                else
+                    System.out.println("Invalid operator!");
 
-            case '*':
-                result = num1 * num2;
-                System.out.println("Result = " + result);
-                break;
+                success = true;
+            }
 
-            case '/':
-                if (num2 != 0) {
-                    result = num1 / num2;
-                    System.out.println("Result = " + result);
-                } else {
-                    System.out.println("Cannot divide by zero!");
-                }
-                break;
+            catch (InvalidNumberException e) {
+                System.out.println(e.getMessage());
+            }
 
-            default:
-                System.out.println("Invalid operator!");
+            catch (DivideByZeroException e) {
+                System.out.println(e.getMessage());
+            }
+
+            finally {
+                System.out.println("Attempt logged.");
+            }
         }
 
         sc.close();
     }
 }
-
