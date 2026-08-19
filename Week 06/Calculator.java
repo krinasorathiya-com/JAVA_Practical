@@ -15,45 +15,67 @@ class InvalidNumberException extends Exception {
 public class Calculator {
     public static void main(String[] args) {
 
-        try (Scanner sc = new Scanner(System.in)) {
-            boolean success = false;
+        Scanner sc = new Scanner(System.in);
+        boolean done = false;
 
-            while (!success) {
-                try {
-                    System.out.print("Enter expression (a operator b): ");
+        while (!done) {
+            try {
+                System.out.print("Enter: ");
 
-                    String a = sc.next();
-                    char op = sc.next().charAt(0);
-                    String b = sc.next();
+                int a = sc.nextInt();
+                char op = sc.next().charAt(0);
+                int b = sc.nextInt();
 
-                    if (!a.matches("\\d+") || !b.matches("\\d+"))
-                        throw new InvalidNumberException("Invalid number!");
+                if (a < 0 || b < 0)
+                    throw new InvalidNumberException("Negative number is not allowed!");
 
-                    int x = Integer.parseInt(a);
-                    int y = Integer.parseInt(b);
+                if (op == '*' && (a == 0 || b == 0))
+                    throw new InvalidNumberException("0 is not allowed in multiplication!");
 
-                    if (op == '/' && y == 0)
-                        throw new DivideByZeroException("Cannot divide by zero!");
+                if (op == '/' && b == 0)
+                    throw new DivideByZeroException("Cannot divide by zero!");
 
-                    switch (op) {
-                        case '+' -> System.out.println("Result = " + (x + y));
-                        case '-' -> System.out.println("Result = " + (x - y));
-                        case '*' -> System.out.println("Result = " + (x * y));
-                        case '/' -> System.out.println("Result = " + (x / y));
-                        default -> System.out.println("Invalid operator!");
-                    }
-
-                    success = true;
+                switch (op) {
+                    case '+':
+                        System.out.println("Result = " + (a + b));
+                        break;
+                    case '-':
+                        System.out.println("Result = " + (a - b));
+                        break;
+                    case '*':
+                        System.out.println("Result = " + (a * b));
+                        break;
+                    case '/':
+                        System.out.println("Result = " + (a / b));
+                        break;
+                    default:
+                        System.out.println("Invalid operator!");
+                        break;
                 }
 
-                catch (InvalidNumberException | DivideByZeroException e) {
-                    System.out.println(e.getMessage());
-                }
+                done = true;
+            }
 
-                finally {
-                    System.out.println("Attempt logged.");
-                }
+            catch (InvalidNumberException e) {
+                System.out.println(e.getMessage());
+                sc.nextLine();
+            }
+
+            catch (DivideByZeroException e) {
+                System.out.println(e.getMessage());
+                sc.nextLine();
+            }
+
+            catch (Exception e) {
+                System.out.println("Please enter valid numbers!");
+                sc.nextLine();
+            }
+
+            finally {
+                System.out.println("Attempt logged.\n");
             }
         }
+
+        sc.close();
     }
-} 
+}
