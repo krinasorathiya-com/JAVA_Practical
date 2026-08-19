@@ -35,16 +35,13 @@ public class Calculator {
                     if (op == '/' && y == 0)
                         throw new DivideByZeroException("Cannot divide by zero!");
 
-                    if (op == '+')
-                        System.out.println("Result = " + (x + y));
-                    else if (op == '-')
-                        System.out.println("Result = " + (x - y));
-                    else if (op == '*')
-                        System.out.println("Result = " + (x * y));
-                    else if (op == '/')
-                        System.out.println("Result = " + (x / y));
-                    else
-                        System.out.println("Invalid operator!");
+                    switch (op) {
+                        case '+' -> System.out.println("Result = " + (x + y));
+                        case '-' -> System.out.println("Result = " + (x - y));
+                        case '*' -> System.out.println("Result = " + (x * y));
+                        case '/' -> System.out.println("Result = " + (x / y));
+                        default -> System.out.println("Invalid operator!");
+                    }
 
                     success = true;
                 }
