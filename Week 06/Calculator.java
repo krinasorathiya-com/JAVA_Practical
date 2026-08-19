@@ -34,7 +34,7 @@ public class Calculator {
                         throw new InvalidNumberException("0 is not allowed in multiplication!");
                     
                     if (op == '/' && b == 0)
-                        throw new DivideByZeroException("Cannot divide by zero!");
+                        throw new DivideByZeroException("DividebyZeroException ! Cannot divide by zero!");
                     
                     switch (op) {
                         case '+' -> System.out.println("Result = " + (a + b));
