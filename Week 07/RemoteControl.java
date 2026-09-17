@@ -33,7 +33,7 @@ interface permission
     boolean MyChoice(String device, int hours);
 }
 
-class RemoteControl{
+public class RemoteControl{
     public static void main(String[] args)
     {
         Switchable[] devices = {new fan(), new Light()};
@@ -56,5 +56,5 @@ class RemoteControl{
         System.out.println("Fan at 8 AM: " + p2.MyChoice("Fan", 8));
 
         System.out.println("Light at 5 AM: " + p2.MyChoice("Light", 5));
-    };
+    }
 }
