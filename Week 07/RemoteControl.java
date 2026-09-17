@@ -8,10 +8,12 @@ interface Switchable{
     }
 
 class fan implements Switchable{
+        @Override
         public void on()
         {
             System.out.println("Fan is on.");
         }
+        @Override
         public void off()
         {
             System.out.println("Fan is off");
@@ -19,9 +21,11 @@ class fan implements Switchable{
 }
 
 class Light implements Switchable{
+    @Override
     public void on(){
         System.out.println("Light is on.");
     }
+    @Override
     public void off(){
         System.out.println("Light is off.");
     }
