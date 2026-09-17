@@ -30,7 +30,7 @@ class Light implements Switchable{
 @FunctionalInterface 
 interface permission
 {
-   boolean MyChoice(string device,int hours);
+    boolean MyChoice(String device, int hours);
 }
 
 class RemoteControl{
@@ -42,9 +42,19 @@ class RemoteControl{
         device.toggle();
     }
     permission p1=new permission() {
-        boolean MyChoice(string device,int hours){
-            return hour>6;
+        public boolean MyChoice(String device, int hours){
+            return hours > 6;
         }
     };
-}
+        System.out.println("Fan at 8 AM: " + p1.MyChoice("Fan", 8) );
+
+        System.out.println("Light at 5 AM: " + p1.MyChoice("Light", 5));
+        
+        permission p2 = (device, hour) -> hour > 6;
+
+        System.out.println("Lambda Result:");
+        System.out.println("Fan at 8 AM: " + p2.MyChoice("Fan", 8));
+
+        System.out.println("Light at 5 AM: " + p2.MyChoice("Light", 5));
+    };
 }
