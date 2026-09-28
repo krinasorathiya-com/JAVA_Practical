@@ -77,7 +77,7 @@ public class FormValidator {
                     }
                 }
 
-            } catch (Exception e) {
+            } catch (IllegalAccessException | ClassCastException e) {
                 System.out.println(e);
             }
         }
