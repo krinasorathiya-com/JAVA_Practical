@@ -17,10 +17,12 @@ class SignupForm {
 
     @NotBlank
     @MaxLength(20)
-    private String name;
+    @SuppressWarnings("unused")
+    private final String name;
 
     @NotBlank
     @MaxLength(30)
+    @SuppressWarnings("unused")
     private String email;
 
     @NotBlank
