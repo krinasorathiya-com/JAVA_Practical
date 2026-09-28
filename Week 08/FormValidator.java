@@ -23,12 +23,12 @@ class SignupForm {
     @NotBlank
     @MaxLength(30)
     @SuppressWarnings("unused")
-    private String email;
+    private  final String email;
 
     @NotBlank
     @MaxLength(10)
     @SuppressWarnings("unused")
-    String mobile;
+    private  final String mobile;
 
     SignupForm(String name, String email, String mobile) {
         this.name = name;
