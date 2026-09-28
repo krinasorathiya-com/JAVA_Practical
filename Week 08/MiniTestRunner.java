@@ -61,7 +61,7 @@ public class MiniTestRunner {
                 try {
                     method.invoke(testObject);
                     count++;
-                } catch (Exception e) {
+                } catch (java.lang.reflect.InvocationTargetException | IllegalAccessException e) {
                     System.out.println("Test failed: " + method.getName());
                 }
             }
