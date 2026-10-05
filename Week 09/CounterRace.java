@@ -16,7 +16,6 @@ public class CounterRace {
 
     public static void main(String[] args) throws InterruptedException {
 
-        // Without synchronization
         Counter c1 = new Counter();
         Thread[] t1 = new Thread[THREADS];
 
@@ -35,7 +34,6 @@ public class CounterRace {
 
         System.out.println("Without synchronization: " + c1.count);
 
-        // With synchronization
         Counter c2 = new Counter();
         Thread[] t2 = new Thread[THREADS];
 
