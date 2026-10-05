@@ -17,19 +17,20 @@ class SeatBooking {
         }
     }
 
-    synchronized void bookWithSync(String name) {
-        if (seatsLeft > 0) {
+    void bookWithSync(String name) {
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
 
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
+        synchronized (this) {
+            if (seatsLeft > 0) {
+                seatsLeft--;
+                System.out.println(name + " booked a seat.");
+            } else {
+                System.out.println(name + " could not book a seat.");
             }
-
-            seatsLeft--;
-            System.out.println(name + " booked a seat.");
-        } else {
-            System.out.println(name + " could not book a seat.");
         }
     }
 }
