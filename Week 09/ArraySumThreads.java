@@ -23,10 +23,6 @@ public class ArraySumThreads {
             numbers[i] = 1;
         }
 
-        // -------------------------------
-        // Method 1: Without synchronization
-        // -------------------------------
-
         SharedTotal.total = 0;
 
         Thread[] t1 = new Thread[THREADS];
@@ -56,9 +52,6 @@ public class ArraySumThreads {
         System.out.println("Without synchronization: "
                 + SharedTotal.total);
 
-        // -------------------------------
-        // Method 2: Using synchronized
-        // -------------------------------
 
         SharedTotal.total = 0;
 
