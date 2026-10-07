@@ -3,7 +3,7 @@ import java.util.Queue;
 
 class SharedBuffer {
 
-    private Queue<Integer> buffer = new LinkedList<>();
+    private final Queue<Integer> buffer = new LinkedList<>();
     private final int capacity = 3;
 
     public synchronized void produce(int item) throws InterruptedException {
