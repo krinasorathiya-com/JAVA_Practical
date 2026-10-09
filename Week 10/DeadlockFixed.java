@@ -1,8 +1,12 @@
 class Account {
-    String name;
+    private final String name;
 
     Account(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 }
 
@@ -17,10 +21,10 @@ public class DeadlockFixed {
 
             // Always lock Account A first
             synchronized (accountA) {
-                System.out.println("Thread 1 locked Account A");
+                System.out.println("Thread 1 locked " + accountA.getName());
 
                 synchronized (accountB) {
-                    System.out.println("Thread 1 locked Account B");
+                    System.out.println("Thread 1 locked " + accountB.getName());
                     System.out.println("Thread 1 completed transfer");
                 }
             }
@@ -30,10 +34,10 @@ public class DeadlockFixed {
 
             // Also lock Account A first
             synchronized (accountA) {
-                System.out.println("Thread 2 locked Account A");
+                System.out.println("Thread 2 locked " + accountA.getName());
 
                 synchronized (accountB) {
-                    System.out.println("Thread 2 locked Account B");
+                    System.out.println("Thread 2 locked " + accountB.getName());
                     System.out.println("Thread 2 completed transfer");
                 }
             }
