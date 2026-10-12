@@ -28,7 +28,6 @@ class SharedBuffer {
         int item = buffer.remove();
         System.out.println("Consumed: " + item);
 
-      
         notify();
 
         return item;
@@ -41,7 +40,7 @@ public class ProducerConsumer {
 
         SharedBuffer buffer = new SharedBuffer();
 
-      
+
         Thread producer = new Thread(() -> {
             try {
                 for (int i = 1; i <= 10; i++) {
