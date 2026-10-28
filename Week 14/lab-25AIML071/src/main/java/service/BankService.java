@@ -48,14 +48,16 @@ public class BankService {
     public void loadData(String fileName)
             throws IOException, ClassNotFoundException {
 
-        ObjectInputStream in =
-            new ObjectInputStream(
+        try (ObjectInputStream in = new ObjectInputStream(
                 new FileInputStream(fileName)
-            );
+        )) {
+            accounts =
+                    (ArrayList<Account>) in.readObject();
+        }
+    }
 
-        accounts =
-            (ArrayList<Account>) in.readObject();
-
-        in.close();
+    public Object performAction(int i) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'performAction'");
     }
 }
