@@ -1,4 +1,4 @@
-public class BoundedStats {
+public class tempCodeRunnerFile {
 
     public static <N extends Number> double average(N[] values) {
 
