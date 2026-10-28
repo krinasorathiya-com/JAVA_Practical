@@ -31,15 +31,19 @@ public class BankApp {
                                 "Account added successfully."
                         );
                     }
-                    case 2 -> System.out.println(
-                            "Total accounts: " +
-                                    bank.getAccountCount()
-                    );
+                    case 2 -> {
+                        System.out.println(
+                                "Total accounts: " +
+                                        bank.getAccountCount()
+                        );
+                    }
                     case 3 -> {
                         System.out.println("Thank you!");
                         break OUTER;
                     }
-                    default -> System.out.println("Invalid choice.");
+                    default -> {
+                        System.out.println("Invalid choice.");
+                    }
                 }
             }
         }
