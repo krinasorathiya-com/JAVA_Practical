@@ -1,0 +1,4 @@
+INFO: Program started
+ERROR: File not found
+INFO: Processing data
+ERROR: Invalid input

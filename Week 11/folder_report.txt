@@ -1,0 +1,12 @@
+FOLDER FILE REPORT
+==================
+File Name: file1.txt
+Path: MyFolder\file1.txt
+Size: 19 bytes
+Modified Time: 2026-10-28T15:47:08.6472148Z
+------------------
+File Name: file2.txt
+Path: MyFolder\file2.txt
+Size: 20 bytes
+Modified Time: 2026-10-28T15:47:08.6487254Z
+------------------

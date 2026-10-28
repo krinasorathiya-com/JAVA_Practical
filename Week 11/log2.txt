@@ -1,0 +1,4 @@
+INFO: User logged in
+INFO: Data loaded
+ERROR: Database connection failed
+INFO: Program completed
