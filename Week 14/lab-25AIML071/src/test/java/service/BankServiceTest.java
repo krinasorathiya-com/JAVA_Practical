@@ -1,6 +1,9 @@
-import static org.junit.jupiter.api.Assertions.*;
-
+package service;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
+
+import model.Account;
 
 public class BankServiceTest {
 
@@ -39,9 +42,12 @@ public class BankServiceTest {
 
         BankService bank = new BankService();
 
-        assertThrows(
+        assertEquals(
             IllegalArgumentException.class,
-            () -> bank.performAction(99)
+            assertThrows(
+                IllegalArgumentException.class,
+                () -> bank.performAction(99)
+            ).getClass()
         );
     }
 }
