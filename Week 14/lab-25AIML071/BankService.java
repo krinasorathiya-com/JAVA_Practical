@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class BankService {
 
-    private ArrayList<Account> accounts = new ArrayList<>();
+    private final ArrayList<Account> accounts = new ArrayList<>();
 
     public void addAccount(Account account) {
         accounts.add(account);

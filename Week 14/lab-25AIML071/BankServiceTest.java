@@ -1,25 +1,25 @@
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Test;
-
 public class BankServiceTest {
 
-    @Test
-    void addingAccountIncreasesCount() {
+    public static void main(String[] args) {
+        addingAccountIncreasesCount();
+        addingSecondAccountIncreasesCount();
+        invalidActionThrowsException();
+    }
+
+    static void addingAccountIncreasesCount() {
 
         BankService bank = new BankService();
 
-        assertEquals(0, bank.getAccountCount());
+        check(bank.getAccountCount() == 0, "Expected no accounts initially");
 
         bank.addAccount(
             new Account(101, "Krina", 5000)
         );
 
-        assertEquals(1, bank.getAccountCount());
+        check(bank.getAccountCount() == 1, "Expected one account after adding an account");
     }
 
-    @Test
-    void addingSecondAccountIncreasesCount() {
+    static void addingSecondAccountIncreasesCount() {
 
         BankService bank = new BankService();
 
@@ -31,17 +31,24 @@ public class BankServiceTest {
             new Account(102, "Riya", 7000)
         );
 
-        assertEquals(2, bank.getAccountCount());
+        check(bank.getAccountCount() == 2, "Expected two accounts after adding two accounts");
     }
 
-    @Test
-    void invalidActionThrowsException() {
+    static void invalidActionThrowsException() {
 
         BankService bank = new BankService();
 
-        assertThrows(
-            IllegalArgumentException.class,
-            () -> bank.performAction(99)
-        );
+        try {
+            bank.performAction(99);
+        } catch (IllegalArgumentException expected) {
+            return;
+        }
+        throw new AssertionError("Expected IllegalArgumentException for invalid action");
+    }
+
+    private static void check(boolean condition, String message) {
+        if (!condition) {
+            throw new AssertionError(message);
+        }
     }
 }

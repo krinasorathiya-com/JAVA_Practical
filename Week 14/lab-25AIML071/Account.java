@@ -1,8 +1,8 @@
 public class Account {
 
-    private int accountNo;
-    private String name;
-    private double balance;
+    private final int accountNo;
+    private final String name;
+    private final double balance;
 
     public Account(int accountNo, String name, double balance) {
         this.accountNo = accountNo;
