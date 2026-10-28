@@ -3,7 +3,7 @@ import java.io.*;
 class Student implements Serializable {
     int rollNo;
     String name;
-    transient String password;   
+    transient String password;
 
     Student(int rollNo, String name, String password) {
         this.rollNo = rollNo;
@@ -29,11 +29,10 @@ public class SerializableDemo {
         };
 
         try {
-            ObjectOutputStream out =
-                new ObjectOutputStream(new FileOutputStream("students.dat"));
-
-            out.writeObject(students);
-            out.close();
+            try (ObjectOutputStream out =
+                    new ObjectOutputStream(new FileOutputStream("students.dat"))) {
+                out.writeObject(students);
+            }
 
             System.out.println("Objects saved successfully.\n");
 
@@ -42,11 +41,11 @@ public class SerializableDemo {
         }
 
         try {
-            ObjectInputStream in =
-                new ObjectInputStream(new FileInputStream("students.dat"));
-
-            Student[] loadedStudents = (Student[]) in.readObject();
-            in.close();
+            Student[] loadedStudents;
+            try (ObjectInputStream in =
+                    new ObjectInputStream(new FileInputStream("students.dat"))) {
+                loadedStudents = (Student[]) in.readObject();
+            }
 
             System.out.println("Objects loaded successfully.\n");
 
