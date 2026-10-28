@@ -33,7 +33,6 @@ public class BankService {
         return null;
     }
 
-    // Save data into file
     public void saveData(String fileName) throws IOException {
 
         try (ObjectOutputStream out = new ObjectOutputStream(
@@ -43,7 +42,6 @@ public class BankService {
         }
     }
 
-    // Load data from file
     @SuppressWarnings("unchecked")
     public void loadData(String fileName)
             throws IOException, ClassNotFoundException {
@@ -54,10 +52,5 @@ public class BankService {
             accounts =
                     (ArrayList<Account>) in.readObject();
         }
-    }
-
-    public Object performAction(int i) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'performAction'");
     }
 }

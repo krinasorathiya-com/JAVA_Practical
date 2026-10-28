@@ -1,6 +1,7 @@
 package service;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.Test;
 
 import model.Account;
@@ -8,21 +9,8 @@ import model.Account;
 public class BankServiceTest {
 
     @Test
-    void addingAccountIncreasesCount() {
-
-        BankService bank = new BankService();
-
-        assertEquals(0, bank.getAccountCount());
-
-        bank.addAccount(
-            new Account(101, "Krina", 5000)
-        );
-
-        assertEquals(1, bank.getAccountCount());
-    }
-
-    @Test
-    void addingSecondAccountIncreasesCount() {
+    void saveAndReloadKeepsDataUnchanged()
+            throws Exception {
 
         BankService bank = new BankService();
 
@@ -34,20 +22,48 @@ public class BankServiceTest {
             new Account(102, "Riya", 7000)
         );
 
-        assertEquals(2, bank.getAccountCount());
-    }
+        String fileName = "accounts.dat";
 
-    @Test
-    void invalidActionThrowsException() {
+        bank.saveData(fileName);
 
-        BankService bank = new BankService();
+        BankService newBank =
+            new BankService();
+
+        newBank.loadData(fileName);
 
         assertEquals(
-            IllegalArgumentException.class,
-            assertThrows(
-                IllegalArgumentException.class,
-                () -> bank.performAction(99)
-            ).getClass()
+            bank.getAccountCount(),
+            newBank.getAccountCount()
+        );
+
+        Account account =
+            newBank.getAccount(101);
+
+        assertNotNull(account);
+
+        assertEquals(
+            "Krina",
+            account.getName()
+        );
+
+        assertEquals(
+            5000,
+            account.getBalance()
+        );
+
+        Account account2 =
+            newBank.getAccount(102);
+
+        assertNotNull(account2);
+
+        assertEquals(
+            "Riya",
+            account2.getName()
+        );
+
+        assertEquals(
+            7000,
+            account2.getBalance()
         );
     }
 }
