@@ -50,7 +50,7 @@ public class LogAnalyzer {
                 int fileKeywordLines = 0;
 
                 try (BufferedReader reader =
-                         Files.newBufferedReader(file)) {
+                        Files.newBufferedReader(file)) {
 
                     String line;
 
@@ -72,14 +72,14 @@ public class LogAnalyzer {
                 System.out.println("Size: " + size + " bytes");
                 System.out.println("Total Lines: " + fileLines);
                 System.out.println("Lines containing " + keyword + ": "
-                                   + fileKeywordLines);
+                                + fileKeywordLines);
                 System.out.println();
             }
 
             System.out.println("----- Overall Result -----");
             System.out.println("Total Lines: " + totalLines);
             System.out.println("Total Lines containing " + keyword + ": "
-                               + keywordLines);
+                            + keywordLines);
 
         } catch (IOException e) {
             System.out.println("Error reading files: " + e);
