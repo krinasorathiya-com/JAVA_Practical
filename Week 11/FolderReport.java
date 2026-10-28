@@ -12,11 +12,9 @@ public class FolderReport {
 
         try {
 
-            // Create folder if it does not exist
             if (!Files.exists(folder)) {
                 Files.createDirectory(folder);
 
-                // Create sample files
                 Files.write(
                     folder.resolve("file1.txt"),
                     "This is first file.".getBytes()
@@ -30,20 +28,18 @@ public class FolderReport {
                 System.out.println("Sample folder and files created.");
             }
 
-            // Create report
             try (BufferedWriter writer =
-                     Files.newBufferedWriter(report)) {
+                    Files.newBufferedWriter(report)) {
 
                 writer.write("FOLDER FILE REPORT");
                 writer.newLine();
                 writer.write("==================");
                 writer.newLine();
 
-                // Walk through complete folder tree
                 try (Stream<Path> paths = Files.walk(folder)) {
 
                     paths.filter(Files::isRegularFile)
-                         .forEach(path -> {
+                        .forEach(path -> {
 
                         try {
 

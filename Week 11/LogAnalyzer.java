@@ -8,7 +8,6 @@ public class LogAnalyzer {
 
         String keyword = "ERROR";
 
-        // Create sample log files
         try {
             Files.write(
                 Path.of("log1.txt"),
@@ -40,7 +39,6 @@ public class LogAnalyzer {
         int keywordLines = 0;
 
         try {
-            // Files to analyze
             Path[] files = {
                 Path.of("log1.txt"),
                 Path.of("log2.txt")
@@ -51,7 +49,6 @@ public class LogAnalyzer {
                 int fileLines = 0;
                 int fileKeywordLines = 0;
 
-                // Read file line by line
                 try (BufferedReader reader =
                          Files.newBufferedReader(file)) {
 
@@ -69,7 +66,6 @@ public class LogAnalyzer {
                     }
                 }
 
-                // Get file size
                 long size = Files.size(file);
 
                 System.out.println("File: " + file.getFileName());

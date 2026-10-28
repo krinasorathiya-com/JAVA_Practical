@@ -3,7 +3,7 @@ import java.io.*;
 class Student implements Serializable {
     int rollNo;
     String name;
-    transient String password;   // This field will not be saved
+    transient String password;   
 
     Student(int rollNo, String name, String password) {
         this.rollNo = rollNo;
@@ -28,7 +28,6 @@ public class SerializableDemo {
             new Student(103, "Neha", "pqr789")
         };
 
-        // Save objects to file
         try {
             ObjectOutputStream out =
                 new ObjectOutputStream(new FileOutputStream("students.dat"));
@@ -42,7 +41,6 @@ public class SerializableDemo {
             System.out.println("Error while saving: " + e);
         }
 
-        // Read objects from file
         try {
             ObjectInputStream in =
                 new ObjectInputStream(new FileInputStream("students.dat"));
